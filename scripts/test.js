@@ -70,31 +70,39 @@ function render(instance) {
 }
 
 function runOnce() {
-  return app.visit('/')
+  var html = '';
+
+  app.visit('/')
     .then(render)
-    .then(cleanup);
+    .then(cleanup)
+    .then(function(res) {
+      html = res;
+    });
+
+  __runDeferred();
+
+  return html;
 }
 
-function nTimes(fn, n, times) {
+function nTimes(fn, n) {
   if (n <= 0) {
-    return;
+    return [];
   }
 
   times = times || [];
 
-  var start = Date.now();
-  return fn().then(function() {
+  for (var i = 0; i < n; i++) {
+    var start = Date.now();
+    fn();
     times.push(Date.now() - start);
-    return nTimes(fn, n - 1, times);
-  });
+  }
+
+  return times;
 }
 
-var nTrials = 10;
+var nTrials = 20;
 
-var times = [];
-nTimes(runOnce, nTrials, times).then(function() {
-  writeFile('render-times-' + Date.now() + '.csv', times.join('\n'));
-});
+var times = nTimes(runOnce, nTrials);
+writeFile('render-times-' + Date.now() + '.csv', times.join('\n'));
 
-runOnce().then(print);
-__runDeferred();
+print(runOnce());
