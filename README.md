@@ -27,6 +27,6 @@ First, build the client app in prod mode.
 
 Then run the performance test by running the following script:
 
-`jrunscript scripts/test.js`
+`jrunscript -J-server scripts/test.js`
 
 This will write a csv with timing data when finished.
