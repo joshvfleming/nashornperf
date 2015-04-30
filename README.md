@@ -1,4 +1,4 @@
-# Leaktest
+# Nashorn Perf
 
 This is a test app for measuring render performance in Nashorn.
 
