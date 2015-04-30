@@ -85,11 +85,11 @@ function runOnce() {
 }
 
 function nTimes(fn, n) {
-  if (n <= 0) {
-    return [];
-  }
+  var times = [];
 
-  times = times || [];
+  if (n <= 0) {
+    return times;
+  }
 
   for (var i = 0; i < n; i++) {
     var start = Date.now();
