@@ -1,5 +1,5 @@
 {
-  "name": "leaktest",
+  "name": "nashornperf",
   "dependencies": {
     "jquery": "^1.11.1",
     "ember": "components/ember#canary",

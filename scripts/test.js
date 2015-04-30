@@ -1,12 +1,12 @@
 load('scripts/env.js');
 load('node_modules/simple-dom/dist/simple-dom.js');
 load('dist/assets/vendor.js');
-load('dist/assets/leaktest.js');
+load('dist/assets/nashornperf.js');
 load('scripts/shims.js');
 
 __runDeferred();
 
-App = require('leaktest/app').default;
+App = require('nashornperf/app').default;
 
 function createApp() {
   var app = null;

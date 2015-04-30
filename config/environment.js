@@ -2,7 +2,7 @@
 
 module.exports = function(environment) {
   var ENV = {
-    modulePrefix: 'leaktest',
+    modulePrefix: 'nashornperf',
     environment: environment,
     baseURL: '/',
     locationType: 'auto',
