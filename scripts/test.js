@@ -100,7 +100,7 @@ function nTimes(fn, n) {
   return times;
 }
 
-var nTrials = 20;
+var nTrials = 2000;
 
 var times = nTimes(runOnce, nTrials);
 writeFile('render-times-' + Date.now() + '.csv', times.join('\n'));
